@@ -30,6 +30,7 @@ def item(request, id):
     for i in items:
         if i["id"] == id:
             text = f'Наименование: {i["name"]}, количество: {i["quantity"]}'
+            text = text + f'<br/><a href="/items">назад к списку товаров</a>'
             flag = 1
             break
     if flag == 0:
@@ -39,5 +40,5 @@ def item(request, id):
 def items_all(request):
     text = ""
     for i in items:
-        text = text + f'<br/>{i["id"]}. Наименование: {i["name"]}, количество: {i["quantity"]}'
+        text = text + f'<br/><a href="/item/{i["id"]}">{i["id"]}</a>. Наименование: {i["name"]}, количество: {i["quantity"]}'
     return HttpResponse(text)
