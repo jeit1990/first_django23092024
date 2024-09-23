@@ -24,20 +24,19 @@ def about(request):
 
     return HttpResponse(text_all)
 
-def item(request, id):
+def get_item(request, id):
     text = ""
-    flag = 0
     for i in items:
         if i["id"] == id:
             text = f'Наименование: {i["name"]}, количество: {i["quantity"]}'
             text = text + f'<br/><a href="/items">назад к списку товаров</a>'
-            flag = 1
-            break
-    if flag == 0:
-        text = f'Товар с id={id} не найден'
+
+            return HttpResponse(text)
+
+    text = f'Товар с id={id} не найден'
     return HttpResponse(text)
 
-def items_all(request):
+def get_items(request):
     text = ""
     for i in items:
         text = text + f'<br/><a href="/item/{i["id"]}">{i["id"]}</a>. Наименование: {i["name"]}, количество: {i["quantity"]}'
