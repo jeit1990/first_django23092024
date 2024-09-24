@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 # Create your views here.
 text_all = """
     Имя: <strong>Иван</strong> <br/>
@@ -14,12 +14,16 @@ items = [   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
             {"id": 7, "name": "Картофель фри" ,"quantity":0},
             {"id": 8, "name": "Кепка" ,"quantity":124},]
 
-def home(request):
+def home_old(request):
     text = """
     <h1>"Изучаем django"</h1>
     <strong>Автор</strong>: <i>Носик Л.С.</i>
     """
     return HttpResponse(text)
+
+def home(request):
+
+    return render(request, "index.html")
 
 def about(request):
 
@@ -35,7 +39,7 @@ def get_item(request, item_id):
             return HttpResponse(text)
 
     text = f'Товар с id={item_id} не найден'
-    return HttpResponse(text)
+    return HttpResponseNotFound(text)
 
 def get_items(request):
     text = ""
