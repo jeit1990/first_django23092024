@@ -1,3 +1,5 @@
+from lib2to3.fixes.fix_input import context
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 # Create your views here.
@@ -22,8 +24,11 @@ def home_old(request):
     return HttpResponse(text)
 
 def home(request):
-
-    return render(request, "index.html")
+    context = {
+        "name": "petrov ivan",
+        "email": "asd@mail.ru"
+    }
+    return render(request, "index.html", context)
 
 def about(request):
 
@@ -42,7 +47,9 @@ def get_item(request, item_id):
     return HttpResponseNotFound(text)
 
 def get_items(request):
-    text = ""
-    for i in items:
+    #text = ""
+    """for i in items:
         text = text + f'<br/><a href="/item/{i["id"]}">{i["id"]}</a>. Наименование: {i["name"]}, количество: {i["quantity"]}'
-    return HttpResponse(text)
+    """
+    context = {}
+    return render(request, "items.html", context)
