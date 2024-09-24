@@ -3,7 +3,15 @@ from lib2to3.fixes.fix_input import context
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 # Create your views here.
-text_all = """
+text_all = {
+    "Имя": "Иван",
+    "Отчество": "Петрович",
+    "Фамилия": "Иванов",
+    "телефон": "8-923-600-01-02",
+    "email": "vasya@mail.ru"
+}
+
+text_all2 = """
     Имя: <strong>Иван</strong> <br/>
     Отчество: <strong>Петрович</strong><br/>
     Фамилия: <strong>Иванов</strong><br/>
@@ -31,25 +39,17 @@ def home(request):
     return render(request, "index.html", context)
 
 def about(request):
-
-    return HttpResponse(text_all)
+    context = text_all
+    return render(request, "about.html", context)
 
 def get_item(request, item_id):
-    text = ""
+    context = {}
     for i in items:
         if i["id"] == item_id:
-            text = f'Наименование: {i["name"]}, количество: {i["quantity"]}'
-            text = text + f'<br/><a href="/items">назад к списку товаров</a>'
-
-            return HttpResponse(text)
-
-    text = f'Товар с id={item_id} не найден'
-    return HttpResponseNotFound(text)
+            context = i
+    context["item_id"] = item_id
+    return render(request, 'item.html', context)
 
 def get_items(request):
-    #text = ""
-    """for i in items:
-        text = text + f'<br/><a href="/item/{i["id"]}">{i["id"]}</a>. Наименование: {i["name"]}, количество: {i["quantity"]}'
-    """
-    context = {}
+    context = { "items": items }
     return render(request, "items.html", context)

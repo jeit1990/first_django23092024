@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    /<a href="/">home</a>/<a href="/items">items</a>/<a href="/about">about</a>
+    <br/>
 </head>
 <body>
-(% for item in items %)
-    <br/><a href="/item/{{ item.id }}"></a>. Наименование: {{ item.name }}, количество: {{ item.quantity }}
+
+{% for item in items %}
+    {% if item.quantity > 0 %}
+        <br/><a href='/item/{{ item.id }}'>{{ item.id }}. Наименование: {{ item.name }}, количество: {{ item.quantity }}</a>
+    {% else %}
+        <br/>
+        {{ item.id }}. Наименование: {{ item.name }}, Товар отсутствует
+    {% endif %}
 {% endfor %}
 </body>
 </html>
