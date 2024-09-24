@@ -13,6 +13,7 @@ items = [   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
             {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
             {"id": 7, "name": "Картофель фри" ,"quantity":0},
             {"id": 8, "name": "Кепка" ,"quantity":124},]
+
 def home(request):
     text = """
     <h1>"Изучаем django"</h1>
@@ -24,16 +25,16 @@ def about(request):
 
     return HttpResponse(text_all)
 
-def get_item(request, id):
+def get_item(request, item_id):
     text = ""
     for i in items:
-        if i["id"] == id:
+        if i["id"] == item_id:
             text = f'Наименование: {i["name"]}, количество: {i["quantity"]}'
             text = text + f'<br/><a href="/items">назад к списку товаров</a>'
 
             return HttpResponse(text)
 
-    text = f'Товар с id={id} не найден'
+    text = f'Товар с id={item_id} не найден'
     return HttpResponse(text)
 
 def get_items(request):

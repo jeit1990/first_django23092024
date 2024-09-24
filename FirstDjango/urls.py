@@ -6,6 +6,6 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path("", views.home),
     path("about/", views.about),
-    path("item/<int:id>", views.get_item),
+    path("item/<int:item_id>", views.get_item),
     path("items/", views.get_items)
 ]
