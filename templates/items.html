@@ -9,11 +9,11 @@
 <header>
     /<a href="/">home</a>/<a href="/items">items</a>/<a href="/about">about</a>
 </header>
+{% comment %}
 {% for item in items %}
-
     <br/><a href='/item/{{ item.id }}'>{{ item.id }}. Наименование: {{ item.name }}, количество: {{ item.count }}</a>
-
 {% endfor %}
+{% endcomment %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <div class="row">
     {% for item in items %}
