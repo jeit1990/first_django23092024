@@ -44,19 +44,11 @@ def about(request):
     return render(request, "about.html", context)
 
 def get_item(request, item_id):
-    """context = {}
-    for i in items:
-        if i["id"] == item_id:
-            context = i
-    context["item_id"] = item_id"""
-
     try:
-        item = Item.objects.get(id=item_id)
-        #print(item)
+        item = Item.objects.get(pk=item_id)
         context = {"item": item}
     except:
         context = {"item_id": item_id}
-
     return render(request, 'item.html', context)
 
 def get_items(request):
