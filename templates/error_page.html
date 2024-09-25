@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% include 'header.html' %}
     error: {{ error }}
 <br/>
 <a href="{% url 'items-list' %}">назад к списку товаров</a>
