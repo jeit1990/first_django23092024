@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block title%} eror page {% endblock %}
 {% block content %}
-{% include 'header.html' %}
+{{ block.super }}
     error: {{ error }}
 <br/>
 <a href="{% url 'items-list' %}">назад к списку товаров</a>

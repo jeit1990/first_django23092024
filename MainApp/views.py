@@ -46,7 +46,8 @@ def about(request):
 def get_item(request, item_id):
     try:
         item = Item.objects.get(pk=item_id)
-        context = {"item": item}
+        colors = item.colors.all()
+        context = {"item": item, 'colors': colors,}
     except:
         context = {"error": f'Товар с id = {item_id } не найден'}
         return render(request, 'error_page.html', context)

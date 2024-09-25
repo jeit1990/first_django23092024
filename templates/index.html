@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block title%} Home page {% endblock %}
 {% block content %}
-{% include 'header.html' %}
+{{ block.super }}
+<br/>
+<img src="{% static 'images/django.svg' %}" alt="my_image" width="50px">
     <h1>Приветствую</h1>
     my name is: <i> {{ name }}</i><br/>
     my email is: <i> {{ email }}</i><br/>

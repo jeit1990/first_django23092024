@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block title%} about {% endblock %}
 {% block content %}
-{% include 'header.html' %}
+{{ block.super }}
+
+
     Имя: <strong>{{ Имя }}</strong><br/>
     Отчество: <strong>{{ Отчество }}</strong><br/>
     Фамилия: <strong>{{ Фамилия }}</strong><br/>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title> {% block title %} Title {% endblock %}</title>
     {% block style %}
         {# Это общая css для всех страниц #}
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         {# Но каждая страница может содержать доп.уникальные css #}
     {% endblock %}
@@ -15,6 +16,7 @@
 <main>
     {#  Содержимое этого блока уникально на каждой странице #}
     {% block content %}
+    {% include 'header.html' %}
     {% endblock %}
 </main>
 <footer>

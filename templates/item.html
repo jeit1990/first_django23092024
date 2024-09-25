@@ -1,8 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block title%} item page {% endblock %}
+{% block style %}
+{{ block.super }}
+<style>
+#square {
+    width: 10px;
+    height: 10px;
+    //background: {{ clr.name }};
+    display: inline-block;
+    white-space: nowrap;
+}
 
+</style>
+{% endblock %}
 {% block content %}
-{% include 'header.html' %}
+{{ block.super }}
     Наименование: {{ item.name }}, бренд: {{ item.brand }}, количество: {{ item.count | default:"Товар отсутствует" }}
 <br/>
+{% if colors %}
+    {% for clr in colors %}
+            <div id="square" style="background: {{ clr.name }}" ></div>
+            {{ clr.name }}<br/>
+    {% endfor %}
+{% else %}
+    Нет выбора цвета <br/>
+{% endif %}
+
+
 <a href="{% url 'items-list' %}">назад к списку товаров</a>
 {% endblock %}
