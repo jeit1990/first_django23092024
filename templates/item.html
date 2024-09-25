@@ -11,11 +11,9 @@
 </header>
 
 {% if item.count > 0 %}
-    Наименование: {{ item.name }}, количество: {{ item.count }}
-{% elif item.count == 0 %}
-    Наименование: {{ item.name }}, Товар отсутствует
+    Наименование: {{ item.name }}, бренд: {{ item.brand }}, количество: {{ item.count }}
 {% else %}
-    Товар с id = {{ item_id }} не найден
+    Наименование: {{ item.name }}, бренд: {{ item.brand }}, Товар отсутствует
 {% endif %}
 <br/>
 <a href="/items">назад к списку товаров</a>

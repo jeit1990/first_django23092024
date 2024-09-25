@@ -5,7 +5,8 @@
     "fields": {
         "name": "Кроссовки",
         "brand": "abibas",
-        "count": 10
+        "count": 10,
+        "item_description": "Последние ооригинальные =)"
     }
 },
 {
@@ -14,7 +15,8 @@
     "fields": {
         "name": "Куртка",
         "brand": "кожаная",
-        "count": 2
+        "count": 2,
+        "item_description": "как в 90-х"
     }
 },
 {
@@ -23,7 +25,8 @@
     "fields": {
         "name": "Coca-cola",
         "brand": "1 литр",
-        "count": 12
+        "count": 12,
+        "item_description": "газики тоже есть"
     }
 },
 {
@@ -32,7 +35,8 @@
     "fields": {
         "name": "Картофель",
         "brand": "фри",
-        "count": 0
+        "count": 0,
+        "item_description": "вредный, но вкусный"
     }
 },
 {
@@ -41,7 +45,8 @@
     "fields": {
         "name": "Кепка",
         "brand": "",
-        "count": 124
+        "count": 124,
+        "item_description": "подойдет к куртке"
     }
 }
 ]

@@ -19,11 +19,11 @@ text_all2 = """
     телефон: <strong>8-923-600-01-02</strong><br/>
     email: <strong>vasya@mail.ru</strong>
     """
-items = [   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
+"""items = [   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
             {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
             {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
             {"id": 7, "name": "Картофель фри" ,"quantity":0},
-            {"id": 8, "name": "Кепка" ,"quantity":124},]
+            {"id": 8, "name": "Кепка" ,"quantity":124},]"""
 
 def home_old(request):
     text = """
@@ -48,7 +48,8 @@ def get_item(request, item_id):
         item = Item.objects.get(pk=item_id)
         context = {"item": item}
     except:
-        context = {"item_id": item_id}
+        context = {"error": f'Товар с id = {item_id } не найден'}
+        return render(request, 'error_page.html', context)
     return render(request, 'item.html', context)
 
 def get_items(request):
