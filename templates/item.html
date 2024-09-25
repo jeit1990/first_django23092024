@@ -12,7 +12,7 @@
 
 {% if item.count > 0 %}
     Наименование: {{ item.name }}, количество: {{ item.count }}
-{% elif count == 0 %}
+{% elif item.count == 0 %}
     Наименование: {{ item.name }}, Товар отсутствует
 {% else %}
     Товар с id = {{ item_id }} не найден
