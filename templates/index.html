@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'base.html' %}
 
-</head>
-<body>
-<header>
-    /<a href="/">home</a>/<a href="/items">items</a>/<a href="/about">about</a>
-</header>
-<br/>
+{% block content %}
     <h1>Приветствую</h1>
     my name is: <i> {{ name }}</i><br/>
     my email is: <i> {{ email }}</i><br/>
     Это главная страница сайта.<br/>
     <i>Сайт пока в разработке...<br/></i>
-
-</body>
-</html>
+{% endblock %}

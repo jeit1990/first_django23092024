@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'base.html' %}
 
-</head>
-<body>
-<header>
-    /<a href="/">home</a>/<a href="/items">items</a>/<a href="/about">about</a>
-</header>
-{% comment %}
-{% for item in items %}
-    <br/><a href='/item/{{ item.id }}'>{{ item.id }}. Наименование: {{ item.name }}, количество: {{ item.count }}</a>
-{% endfor %}
-{% endcomment %}
+{% block content %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <div class="row">
     {% for item in items %}
@@ -22,11 +9,9 @@
     <h5 class="card-title">{{ item.name }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ item.brand }}</h6>
     <p class="card-text">{{ item.item_description }}</p>
-    <a href='/item/{{ item.id }}' class="card-link">Перейти</a>
+    <a href="{% url 'item-detail' item.id %}" class="card-link">Перейти</a>
   </div>
 </div>
 {% endfor %}
 </div>
-
-</body>
-</html>
+{% endblock %}

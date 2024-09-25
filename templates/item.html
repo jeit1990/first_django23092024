@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'base.html' %}
 
-</head>
-<body>
-<header>
-    /<a href="/">home</a>/<a href="/items">items</a>/<a href="/about">about</a>
-</header>
-
-{% if item.count > 0 %}
-    Наименование: {{ item.name }}, бренд: {{ item.brand }}, количество: {{ item.count }}
-{% else %}
-    Наименование: {{ item.name }}, бренд: {{ item.brand }}, Товар отсутствует
-{% endif %}
+{% block content %}
+    Наименование: {{ item.name }}, бренд: {{ item.brand }}, количество: {{ item.count | default:"Товар отсутствует" }}
 <br/>
-<a href="/items">назад к списку товаров</a>
-</body>
-</html>
+<a href="{% url 'items-list' %}">назад к списку товаров</a>
+{% endblock %}
